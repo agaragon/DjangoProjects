@@ -8,11 +8,11 @@ import unittest
 
 # Crie seus testes aqui
 class mudarIndiceDeConf(TestCase):
-    # def iniciar(self):
-    #     self.browser = webdriver.Firefox()
+    def iniciar(self):
+        self.browser = webdriver.Firefox()
     
-    # def terminar(self):
-    #     self.browser.quit()
+    def terminar(self):
+        self.browser.quit()
     
     def  adNotaCheck(self):
         empresa = popular(1)

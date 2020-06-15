@@ -1,0 +1,28 @@
+.outer-border {
+    border-color: black !important;
+    border-width: 1px !important;
+  }
+  .navbar {
+    color:rgb(255,255,255,.5);
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+  }
+  .navbar-nav > li > .dropdown-menu { background-color: #343a40; border-color:gray !important
+  }
+  .navbar-nav > li > .dropdown-menu a{
+      color:rgb(255,255,255,.5); 
+ }
+ 
+  .dropdown-menu .dropdown-item:hover {
+    background-image: none;
+    background-color:#343a40;
+  }

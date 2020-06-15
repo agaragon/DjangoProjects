@@ -1,6 +1,7 @@
 # from selenium import webdriver
 from models import Empresa
 from static.rotinas.calcularConf import adPend,adNota
+
 import uuid 
 
 # browser = webdriver.Firefox()
