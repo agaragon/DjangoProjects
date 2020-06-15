@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    {% if listaDeEmpresas %}
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nome da empresa</th>
+                    <th scope="col" class = 'text-center'>Grau de confiança</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for empresa in listaDeEmpresas %}
+                    <tr>
+                        <td>{{ empresa.nomeDaEmpresa }}</td>
+                        <td class = 'text-center'>{{ empresa.indiceDeConfInt }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Sem lista de empresas</p>
+    {% endif %}
+</div>
+{% endblock %}
