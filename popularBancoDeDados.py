@@ -2,12 +2,11 @@ import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE','confEmpresas.settings')
 import django
 django.setup()
+
 import random
 import uuid 
 from calcularConf.models import Empresa
 from faker import Faker
-
-django.setup()
 
 fakegen = Faker()
 

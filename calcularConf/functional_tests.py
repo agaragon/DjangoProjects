@@ -1,17 +1,44 @@
 from selenium import webdriver
 import unittest
+from selenium.webdriver.common.action_chains import ActionChains
+import time
 
 class NovoVisitanteTeste(unittest.TestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
 
-    def tearDown(self):
-        self.browser.quit()
-
+    #Quando o usuário clica na dropdown box, ele pode ver os demais links disponíveis
+    def testFuncionamentoDaNavbar(self):
+        self.browser.get('http://localhost:8000')
+        dropdownBox = self.browser.find_element_by_id('dropdownBox')
+        ActionChains(self.browser).click(dropdownBox).perform()
+        classes = dropdownBox.get_attribute('class')
+        fail = True
+        for aClass in classes.split(" "):
+            if aClass == "show":
+                fail = False
+        if fail == True:
+            self.fail("O dropbox não está funcionando")
+    
+    #Quando o usuário clica no link para acessar o cadastro das empresas, ele pode ver uma tabela cujo cabeçalho contém os tags "Nome da empresa", "Indice de confiabilidade", "Quantidades de Notas Fiscais" e "Quantidade de pendências"
     def testPodeAcessarListaDeEmpresas(self):
         self.browser.get('http://localhost:8000')
         self.assertIn('Cadastro de confiabilidade',self.browser.title)
-        self.fail('Terminar o teste')
+        dropdownBox = self.browser.find_element_by_id('dropdownBox')
+        ActionChains(self.browser).click(dropdownBox).perform()
+        acessoParaLista = self.browser.find_element_by_link_text('Verificar cadastros')
+        ActionChains(self.browser).click(acessoParaLista).perform()
+        time.sleep(1)
+        self.browser.find
+        # self.fail('Terminar o teste')
+
+
+    # def testNomesDasEmpresasEstaoVisiveis(self):
+    #     self.browser.get('http://localhost:8000')
+        
+    
+    def tearDown(self):
+        self.browser.quit()
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
