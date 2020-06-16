@@ -4,8 +4,8 @@ import django
 django.setup()
 
 import random
-import uuid 
 from calcularConf.models import Empresa
+from calcularConf.static.rotinas.calcularConf import adNotas,adPends
 from faker import Faker
 
 fakegen = Faker()
@@ -13,14 +13,14 @@ fakegen = Faker()
 def popular(N=5):
 
     for entry in range(N):
-        empresa = fakegen.company()
-        id = uuid.uuid1()
+        nomeDaEmpresa = fakegen.company()
         qtdDeNotas = random.randint(0,200)
         qtdDePendencias = random.randint(0,200)
-        indiceDeConf = random.randint(1,100)
-        print(entry)
-        Empresa.objects.get_or_create(nomeDaEmpresa = empresa,qtdDeNotasEmitidas = qtdDeNotas,qtdDePendencias = qtdDePendencias,idDaEmpresa = id,indiceDeConf = indiceDeConf)[0]
-        
+        indiceDeConf = 50
+        empresa = Empresa.objects.get_or_create(nomeDaEmpresa = nomeDaEmpresa,qtdDeNotasEmitidas = qtdDeNotas,qtdDePendencias = qtdDePendencias,indiceDeConf = indiceDeConf)[0]
+        adNotas(empresa)
+        adPends(empresa)
+
 
 if __name__ == '__main__':
     print('Populando banco de dados')

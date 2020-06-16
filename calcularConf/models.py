@@ -1,8 +1,3 @@
-import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE','confEmpresas.settings')
-import django
-django.setup()
-
 from django.db import models
 
 # Create your models here.
@@ -11,6 +6,5 @@ class Empresa(models.Model):
     qtdDeNotasEmitidas = models.PositiveIntegerField()
     qtdDePendencias = models.PositiveIntegerField()
     indiceDeConf = models.PositiveIntegerField()
-    idDaEmpresa = models.CharField(unique=True,max_length=20)
     def __str__(self):
         return self.nomeDaEmpresa

@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
+<br>
 <div>
     {% if listaDeEmpresas %}
 
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Nome da empresa</th>
-                    <th scope="col" class = 'text-center'>Grau de confiança</th>
+                    <th class='text-center' scope="col">Nome da empresa</th>
+                    <th class='text-center'>Quantidade de notas emitidas</th>
+                    <th class='text-center'>Quantidade de pendências</th>
+                    <th class='text-center' scope="col" class = 'text-center'>Grau de confiança</th>
                 </tr>
             </thead>
             <tbody>
                 {% for empresa in listaDeEmpresas %}
                     <tr>
-                        <td>{{ empresa.nomeDaEmpresa }}</td>
-                        <td class = 'text-center'>{{ empresa.indiceDeConfInt }}</td>
+                        <td class='text-center'>{{ empresa.nomeDaEmpresa }}</td>
+                        <td class='text-center'>{{ empresa.qtdDeNotasEmitidas }}</td>
+                        <td class='text-center'>{{ empresa.qtdDePendencias }}</td>
+                        <td class = 'text-center'>{{ empresa.indiceDeConf }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
