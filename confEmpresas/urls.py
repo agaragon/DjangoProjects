@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from calcularConf.views import homeView,verificarCadastrosView
+from calcularConf.views import homeView,verificarCadastrosView,atualizarCadastrosView
 urlpatterns = [
     path('',homeView,name='home'),
     path('verificarCadastros/',verificarCadastrosView,name='verificarCadastros'),
-    path('atualizarCadastros/',verificarCadastrosView,name='atualizarCadastros'),
+    path('atualizarCadastros/',atualizarCadastrosView,name='atualizarCadastros'),
     path('admin/', admin.site.urls),
 ]

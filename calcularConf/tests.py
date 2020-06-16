@@ -1,29 +1,20 @@
-from selenium import webdriver
+from django.urls import resolve
 from django.test import TestCase
-from models import Empresa
-from popularBancoDeDados import popular
-from calcularConf.static.rotinas.calcularConf import adNotas,adPends
-
-import unittest
+from calcularConf.views import homeView,verificarCadastrosView,atualizarCadastrosView
 
 # Crie seus testes aqui
-class mudarIndiceDeConf(TestCase):
-    def iniciar(self):
-        self.browser = webdriver.Firefox()
-    
-    def terminar(self):
-        self.browser.quit()
-    
-    def  adNotaCheck(self):
-        empresa = popular(1)
-        adNotas(empresa,500)
-        Empresa.objects.filter(id=empresa.id).delete()
+class HomePageTest(TestCase):
+    def testRootUrlResolvesToHomePageView(self):
+        found = resolve('/')
+        self.assertEqual(found.func,homeView)
 
+class VerificarCadastrosTest(TestCase):
+    def testRootUrlResolvesToVerificarCadastrosView(self):
+        found = resolve('/verificarCadastros/')
+        self.assertEqual(found.func,verificarCadastrosView)
 
-    def adPendCheck(self):
-        empresa = popular(1)
-        adPends(empresa,500)
-        Empresa.objects.filter(id=empresa.id).delete()
+class AtualizarCadastrosTest(TestCase):
+    def testRootUrlResolvesToAtualizarCadastrosView(self):
+        found = resolve('/atualizarCadastros/')
+        self.assertEqual(found.func,atualizarCadastrosView)
 
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')

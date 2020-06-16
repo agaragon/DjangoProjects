@@ -1,15 +1,17 @@
-# from selenium import webdriver
-from models import Empresa
-from static.rotinas.calcularConf import adPend,adNota
+from selenium import webdriver
+import unittest
 
-import uuid 
+class NovoVisitanteTeste(unittest.TestCase):
+    def setUp(self):
+        self.browser = webdriver.Firefox()
 
-# browser = webdriver.Firefox()
-# browser.get('http://localhost:8000')
+    def tearDown(self):
+        self.browser.quit()
 
-# assert 'Cadastro de confiabilidade' in browser.title
+    def testPodeAcessarListaDeEmpresas(self):
+        self.browser.get('http://localhost:8000')
+        self.assertIn('Cadastro de confiabilidade',self.browser.title)
+        self.fail('Terminar o teste')
 
-ent1 = Empresa(nomeDaEmpresa = 'test1',qtdDeNotasEmitidas = 150,qtdDePendencias = 150,idDaEmpresa = uuid.uuid1(),indiceDeConf = 50)
-adNota(ent1)
-if ent1.indiceDeConf == 51:
-    console.log('Teste bem sucedido')
+if __name__ == '__main__':
+    unittest.main(warnings='ignore')

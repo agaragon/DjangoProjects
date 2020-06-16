@@ -18,9 +18,9 @@ def popular(N=5):
         id = uuid.uuid1()
         qtdDeNotas = random.randint(0,200)
         qtdDePendencias = random.randint(0,200)
-        indiceDeConfFloat = random.randint(1,100)
-        indiceDeConfInt = random.randint(1,100)
-        return Empresa.objects.get_or_create(nomeDaEmpresa = empresa,qtdDeNotasEmitidas = qtdDeNotas,qtdDePendencias = qtdDePendencias,idDaEmpresa = id,indiceDeConfInt = indiceDeConfInt,indiceDeConfFloat=indiceDeConfInt)[0]
+        indiceDeConf = random.randint(1,100)
+        print(entry)
+        Empresa.objects.get_or_create(nomeDaEmpresa = empresa,qtdDeNotasEmitidas = qtdDeNotas,qtdDePendencias = qtdDePendencias,idDaEmpresa = id,indiceDeConf = indiceDeConf)[0]
         
 
 if __name__ == '__main__':
