@@ -1,8 +1,10 @@
 from django import forms
-from calcularConf.models import InfoDasEmpresas
+from calcularConf.models import DadosDasEmpresas
+from crispy_forms.helper import FormHelper
 
-
-class InfoDasEmpresasForm(forms.ModelForm):
+class DadosDasEmpresasForm(forms.ModelForm):
+    helper = FormHelper()
+    
     class Meta:
-        model = InfoDasEmpresas
+        model = DadosDasEmpresas
         fields = '__all__'

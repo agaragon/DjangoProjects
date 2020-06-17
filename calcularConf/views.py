@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
-from calcularConf.models import Empresa,InfoDasEmpresas
-from calcularConf.forms import InfoDasEmpresasForm
+from calcularConf.models import Empresa,DadosDasEmpresas
+from calcularConf.forms import DadosDasEmpresasForm
 from calcularConf.static.rotinas.calcularConf import receberRegistros
 import json
 
@@ -15,7 +15,7 @@ def verificarCadastrosView(request):
 
 def atualizarCadastrosView(request):
     if request.method == "POST":
-        form = InfoDasEmpresasForm(request.POST, request.FILES)
+        form = DadosDasEmpresasForm(request.POST, request.FILES)
         dados={'form':form}
         if form.is_valid():
             form.save()
@@ -27,10 +27,10 @@ def atualizarCadastrosView(request):
             receberRegistros(empresaId,pendencias,notas)
             return redirect('verificarCadastros')
     else:
-        form = InfoDasEmpresasForm()
+        form = DadosDasEmpresasForm()
     return render(request,'atualizarCadastros.html',{'form':form})
 
 def registrosView(request):
-    listaDeRegistros = InfoDasEmpresas.objects.all()
+    listaDeRegistros = DadosDasEmpresas.objects.all()
     dados = {'listaDeRegistros':listaDeRegistros}
     return render(request,'registros.html',context=dados)

@@ -8,6 +8,7 @@ def adNotas(empresaId,qtdDeNotasRecebidas):
     result = empresa.indiceDeConf
     for i in range(0,empresa.qtdDeNotasEmitidas):
         result=math.floor(1.02*result)
+        print(result)
     if result > 100:
         result = 100
     return math.floor(result)
@@ -19,6 +20,7 @@ def adPends(empresaId,qtdDePendenciasDetectadas):
     result = empresa.indiceDeConf
     for i in range(0,empresa.qtdDePendencias):
         result=math.ceil(0.96*result)
+        print(result)
     if result < 1:
         result = 1
     return math.ceil(result)
@@ -26,6 +28,7 @@ def adPends(empresaId,qtdDePendenciasDetectadas):
 def receberRegistros(empresaId,qtdDePendenciasDetectadas,qtdDeNotasRecebidas):
     empresa = Empresa.objects.filter(id=empresaId)[0]
     empresa.indiceDeConf = 50
+    empresa.save()
     empresa.qtdDePendencias += qtdDePendenciasDetectadas
     empresa.indiceDeConf = adNotas(empresaId,qtdDeNotasRecebidas)
     empresa.save()

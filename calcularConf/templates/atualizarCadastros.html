@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
 {% block content %}
+<br>
+<h2 class='text-center'>Formulário para entrada de registros</h2>
 <div class = 'container'>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type='submit'>Submit</button>
+        {% crispy form %}
+        <button type='submit' class='btn btn-success'>Submit</button>
     </form>
+
 </div>
+<br>
 {% endblock %}
