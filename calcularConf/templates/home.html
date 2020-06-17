@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
-<div class = 'container'>
+
+<div class="container">
+    <div class="row row-presentation">
+        <div class="col-lg-3 cold-md-3 col-sm-12 col-xs-12 my-auto">
+            <img src="{% static 'img/serasa.png' %}" id="serasaLogo" class="img-responsive img-thumbnail pull-left" alt="Responsive Image">
+        </div>
+
+        <div class="clearfix visible-sm"></div>
+
+        <div class="col-lg-9 cold-md-9 col-sm-12 col-xs-12">
+            <h2>Bem vindo ao cadastro de confiabilidade de empresas do Serasa!</h2>
+            <p class="text-justify">A Serasa disponibiliza para você interessado uma maneira prática de acessar o índice de confiabilidade no mercado financeiro das empresas que temos em nosso banco de dados. Além disso, caso a sua empresa esteja no cadastro, você pode</p>
+        </div>
+    </div>
 
 </div>
+
 {% endblock %}
