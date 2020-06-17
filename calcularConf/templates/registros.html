@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    {% if listaDeRegistros %}
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class='text-center' scope="col">Endereço</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in listaDeRegistros %}
+                    <tr>
+                        <td class='text-center'><a href="{{ registro.arquivo.url }}" class='btn btn-primary'>Acesse o registro</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Sem lista de registros</p>
+    {% endif %}
+</div>
+{% endblock %}
