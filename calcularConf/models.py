@@ -11,6 +11,5 @@ class Empresa(models.Model):
         return self.nomeDaEmpresa
 
 class InfoDasEmpresas(models.Model):
-    pass
     arquivo = models.FileField(validators=[FileExtensionValidator(allowed_extensions=['json'])],null=True,blank=True)
     empresa = models.OneToOneField(Empresa,on_delete=models.CASCADE,primary_key=True)
