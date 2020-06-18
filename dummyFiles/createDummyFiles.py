@@ -1,7 +1,7 @@
 from random import randint
 def createDummyFile(pendencias,notas,nome):
-    content = "{\"pendências\":"+"\""+str(pendencias)+"\""+','+"\""+"notas:"+"\""+str(notas)+"\""+'}'
-    file = open(nome,"w")
+    content = "{\"pendências\":"+"\""+str(pendencias)+"\""+','+"\""+"notas\":"+"\""+str(notas)+"\""+'}'
+    file = open(nome+'.json',"w")
     file.write(content)
     file.close()
 
