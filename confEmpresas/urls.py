@@ -9,7 +9,6 @@ urlpatterns = [
     path('verificarCadastros/',verificarCadastrosView,name='verificarCadastros'),
     path('atualizarCadastros/',atualizarCadastrosView,name='atualizarCadastros'),
     path('registros/',registrosView,name='registros'),
-    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:

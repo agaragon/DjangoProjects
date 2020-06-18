@@ -2,10 +2,11 @@
 
 This README would normally document whatever steps are necessary to get your application up and running.
 
-### What is this repository for? ###
+### Objetivo do repositório: ###
 
-* Quick summary
-* Version
+* O objetivo desse repositório é disponibilizar uma aplicação django para o desafio proposto pela Serasa. Aqui você encontra um passo a passo de como 
+fazer o setup da aplicação. A aplicação está disponível em:
+* 
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###

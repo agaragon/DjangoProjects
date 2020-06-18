@@ -21,8 +21,8 @@ def atualizarCadastrosView(request):
             form.save()
             listaDeRegistros = open('media/'+str(request.FILES['arquivo'])).read().lower()
             d = json.loads(listaDeRegistros)
-            if 'pendências' in d.keys() and 'notas' in d.keys():
-                pendencias = int(d['pendências'])
+            if 'pendencias' in d.keys() and 'notas' in d.keys():
+                pendencias = int(d['pendencias'])
                 notas = int(d['notas'])
                 empresaId = request.POST['empresa']
                 receberRegistros(empresaId,pendencias,notas)
