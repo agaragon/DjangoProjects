@@ -27,9 +27,6 @@
     background-color:#343a40;
   }
 
-  img {
-    background-color: transparent !important;
-  }
 
   @media(max-width:576px){} 
   @media(max-width:768px){
@@ -40,3 +37,15 @@
   } 
   @media(max-width:992px){} 
   @media(max-width:1200px){}
+
+  p{
+    font-family:Century Gothic,CenturyGothic,AppleGothic,sans-serif ;
+    font-size:20px;
+  }
+
+  form{
+    font-family:Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    font-size:20px;
+  }
+
+  

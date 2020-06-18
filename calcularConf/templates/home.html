@@ -2,7 +2,6 @@
 {% load static %}
 
 {% block content %}
-
 <div class="container">
     <div class="row row-presentation">
         <div class="col-lg-3 cold-md-3 col-sm-12 col-xs-12 my-auto">
@@ -12,11 +11,33 @@
         <div class="clearfix visible-sm"></div>
 
         <div class="col-lg-9 cold-md-9 col-sm-12 col-xs-12">
-            <h2>Bem vindo ao cadastro de confiabilidade de empresas do Serasa!</h2>
-            <p class="text-justify">A Serasa disponibiliza para você interessado uma maneira prática de acessar o índice de confiabilidade no mercado financeiro das empresas que temos em nosso banco de dados. Além disso, caso a sua empresa esteja no cadastro, você pode</p>
+            <br>
+            <h2 class='text-center'>Bem vindo ao cadastro de confiabilidade de empresas do Serasa!</h2>
+            <br>
+            <p class="text-justify">A Serasa disponibiliza <a href="{% url 'verificarCadastros' %}">aqui</a> para você interessado uma maneira prática de acessar o índice de confiabilidade no mercado financeiro das empresas que temos em nosso banco de dados. Além disso, você também pode fazer <a href="{% url 'atualizarCadastros' %}">aqui</a> o upload dos registros mensais, os quais serão utilizados para atualizar a nossa <a href="{% url 'verificarCadastros' %}">lista de cadastros</a>.</p>
+            <p>Caso você esteja interessado em descobrir como calculamos nosso índice de confiabilidade, basta continuar lendo.</p>
+            
         </div>
     </div>
-
+    <br>
+    <h3 class='text-center'>Nosso cálculo para o índice de confiabilidade</h3>
+    <p>O cálculo pode ser dividido em e etapas, conforme abaixo:</p>
+    <ul>
+        <li>Considera-se o índice de confiabilidade inicial igual 50;</li>
+        <li>Para cada nota fiscal emitida, o valor do índice de confiabilidade é multiplicado por 1.02 e arredondado para baixo;</li>
+        <li>Para cada pendência da empresa, o índice de confiabilidade é subtraído de 4% de seu valor, equivalente a multiplicá-lo por 0.96, e arredondado para cima.</li>
+    </ul>
+    <p>Obs: vale ressaltar que primeiro são contabilizadas as notas fiscais emitidas e em seguida as pendências.</p>
+    <h4>Exemplo:</h4>
+    <p>Se a sua empresa tiver 3 notas fiscais emitidas e 1 pendência, o cálculo será procedido da seguinte maneira:</p>
+    <ul>
+        <li>O índice de confiabilidade tem valor igual 50.</li>
+        <li>Contabilizando a primeira nota fiscal, o índice é multiplicado por 1.02, totalizando 51;</li>
+        <li>Contabilizando a segunda nota fiscal, o índice é multiplicado por 1.02, totalizando 52.02. Arredondado para baixo, é obtido o valor 52;</li>
+        <li>Contabilizando a terceira nota fiscal, o índice é novamente multiplicado por 1.02, totalizando 53.04, arredondado para baixo obtemos 53;</li>
+        <li>Contabilizando a pendência da sua empresa, o índice será multiplicado por 0.96, totalizando 50.88. Arredondando para cima, obtemos 51;</li>
+        <li>O índice de confiabilidade de sua empresa nesse caso é 51.</li>
+    </ul>
 </div>
 
 {% endblock %}

@@ -19,13 +19,17 @@ def atualizarCadastrosView(request):
         dados={'form':form}
         if form.is_valid():
             form.save()
-            listaDeRegistros = open('media/'+str(request.FILES['arquivo'])).read()
+            listaDeRegistros = open('media/'+str(request.FILES['arquivo'])).read().lower()
             d = json.loads(listaDeRegistros)
-            pendencias = int(d['Pendencias'])
-            notas = int(d['Notas'])
-            empresaId = request.POST['empresa']
-            receberRegistros(empresaId,pendencias,notas)
-            return redirect('verificarCadastros')
+            if 'pendências' in d.keys() and 'notas' in d.keys():
+                pendencias = int(d['pendências'])
+                notas = int(d['notas'])
+                empresaId = request.POST['empresa']
+                receberRegistros(empresaId,pendencias,notas)
+                return redirect('verificarCadastros')
+            else:
+                form = DadosDasEmpresasForm()
+                return render(request,'atualizarCadastros.html',context ={'form':form,'raiseAlert':'raiseAlert'})
     else:
         form = DadosDasEmpresasForm()
     return render(request,'atualizarCadastros.html',{'form':form})

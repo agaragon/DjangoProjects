@@ -8,7 +8,6 @@ def adNotas(empresaId,qtdDeNotasRecebidas):
     result = empresa.indiceDeConf
     for i in range(0,empresa.qtdDeNotasEmitidas):
         result=math.floor(1.02*result)
-        print(result)
     if result > 100:
         result = 100
     return math.floor(result)
@@ -20,7 +19,6 @@ def adPends(empresaId,qtdDePendenciasDetectadas):
     result = empresa.indiceDeConf
     for i in range(0,empresa.qtdDePendencias):
         result=math.ceil(0.96*result)
-        print(result)
     if result < 1:
         result = 1
     return math.ceil(result)

@@ -2,23 +2,33 @@
 {% block content %}
 <div>
     {% if listaDeRegistros %}
-
+    <br>
+        <h2 class='text-center'>Listagem de registros</h2>
+    <br>
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class='text-center' scope="col">Endereço</th>
+                    <th class='text-center' scope="col">Nome da empresa</th>
+                    <th class='text-center' scope="col">Mês do registro</th>
+                    <th class='text-center' scope="col">Id da empresa</th>
+                    <th class='text-center' scope="col">Acesso</th>
                 </tr>
             </thead>
             <tbody>
                 {% for registro in listaDeRegistros %}
                     <tr>
-                        <td class='text-center'><a href="{{ registro.arquivo.url }}" class='btn btn-primary'>Acesse o registro</a></td>
+                        <td class='text-center'>{{ registro.empresa }}</td>
+                        <td class='text-center'>{{ registro.month }}</td>
+                        <td class='text-center'>{{ registro.empresa.id }}</td>
+                        <td class='text-center'><a href="{{ registro.arquivo.url }}" class='btn btn-primary'>Acesse o registro</a></td>                        
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     {% else %}
-        <p>Sem lista de registros</p>
+    <br>
+        <h2 class='text-center'>Nenhum registro foi feito. Acesse <a href="{% url  'atualizarCadastros'%}">o formulário de atualização de cadastros</a> para adicionar um registro.</h2>
+    <br>
     {% endif %}
 </div>
 {% endblock %}
