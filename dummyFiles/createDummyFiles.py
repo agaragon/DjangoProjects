@@ -10,4 +10,4 @@ def createDummyFiles(nome,quantidade):
         createDummyFile(randint(0,20),randint(0,20),nome+str(i))
 
 if __name__ == "__main__":
-    createDummyFiles('teste',20)
+    createDummyFiles('registro',20)
