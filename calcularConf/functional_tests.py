@@ -2,7 +2,6 @@ from selenium import webdriver
 import unittest
 from selenium.webdriver.common.action_chains import ActionChains
 import time
-
 class NovoVisitanteTeste(unittest.TestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -29,14 +28,21 @@ class NovoVisitanteTeste(unittest.TestCase):
         acessoParaLista = self.browser.find_element_by_link_text('Verificar cadastros')
         ActionChains(self.browser).click(acessoParaLista).perform()
         time.sleep(1)
-        self.browser.find
-        # self.fail('Terminar o teste')
+        self.browser.find_element_by_id('cadastroDeEmpresas')
 
-
-    # def testNomesDasEmpresasEstaoVisiveis(self):
-    #     self.browser.get('http://localhost:8000')
         
-    
+    #Quando o usuário clica no botão para criar o banco de dados, ele verá a tabela de registros cerca de 15 segundos depois.
+    #caso o botão não seja encontrado, é porque o banco de dados não está vazio.
+    def testFuncionamentoDoBotaoPopularBanco(self):
+        self.browser.get('http://localhost:8000/verificarCadastros')
+        try:
+            popular = self.browser.find_element_by_tag_name('button')
+        except:
+            return
+        ActionChains(self.browser).click(popular).perform()
+        time.sleep(15)        
+        self.browser.find_elements_by_id('tabelaDeRegistros')
+        
     def tearDown(self):
         self.browser.quit()
 

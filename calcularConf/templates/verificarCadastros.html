@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
+<div id='cadastroDeEmpresas' >
     {% if listaDeEmpresas %}
     <br>
-    <h2 class = 'text-center'>Indices de Confiabilidade</h2>
+    <h2 class = 'text-center'>Índices de Confiabilidade</h2>
     <br>
-        <table class="table table-striped">
+        <table class="table table-striped" id='tabelaDeRegistros'>
             <thead>
                 <tr>
                     <th class='text-center' scope="col">Identificador</th>
@@ -28,7 +28,16 @@
             </tbody>
         </table>
     {% else %}
-        <p>Sem lista de empresas</p>
+    <br>
+        <h2 class="text-center">Sem lista de empresas. Por favor rode o comando "python popularBancoDeDados.py" para popular o banco de dados, ou clique no botão abaixo para fazer o mesmo.</h2>
+        <form class='text-center' method="POST">
+            <br>
+            <button class="btn btn-primary text-center" type='submit'>Criar cadastro de empresas</button>
+            {% csrf_token %}
+            <br>
+        </form>
+    <br>
+
     {% endif %}
 </div>
 {% endblock %}
