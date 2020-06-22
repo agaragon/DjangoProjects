@@ -65,3 +65,4 @@ Summary of set up
 * E-mail: andregaragon@gmail.com
 * Telefone: (48) 9 88185545
 * Página pessoal na web: www.andreguimaraesaragon.cf
+# DjangoProjects
