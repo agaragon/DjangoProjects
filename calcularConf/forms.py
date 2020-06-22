@@ -8,3 +8,4 @@ class DadosDasEmpresasForm(forms.ModelForm):
     class Meta:
         model = DadosDasEmpresas
         fields = '__all__'
+        

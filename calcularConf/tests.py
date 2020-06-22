@@ -48,6 +48,10 @@ class AtualizarCadastrosTest(TestCase):
 
         #verifica se o valor retornado pela função "receber registros" é compatível com os valores esperados. Note que o menor índice que uma empresa
         #pode atingir é 24, valores inferiores a esse não são alcançados.
+        #Para uma empresa com 3 notas e uma pendências, espera-se um índice de 51
+        #Para uma empresa com 4 notas e 10 pendências espera-se um índice de 41
+        #Para uma empresa com 50 notas e 0 pendências espera-se um índice de 100
+        #Para uma empresa com 51 notas e 0 pendências espera-se um índice de 100
     def testCalculoDoIndiceDeConfiabilidade(self):
         nomeDaEmpresa = 'teste'
         qtdDeNotas = 0

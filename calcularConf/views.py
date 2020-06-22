@@ -35,7 +35,6 @@ def atualizarCadastrosView(request):
         dados={'form':form}
         if form.is_valid():
             form.save()
-            print(type(request.FILES['arquivo']))
             listaDeRegistros = open('media/'+str(request.FILES['arquivo'])).read().lower()
             d = json.loads(listaDeRegistros)
             if 'pendencias' in d.keys() and 'notas' in d.keys():
